@@ -1,0 +1,14 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+		"watch:build": "chokidar \"resources/**/*\" -c \"npm run build\""
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "chokidar-cli": "^3.0.0",
+        "laravel-vite-plugin": "^0.7.2",
+        "vite": "^4.0.0"
+    }
+}
