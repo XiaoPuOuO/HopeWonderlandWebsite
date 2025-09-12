@@ -1,0 +1,7 @@
+composer require laravel/sanctum
+php artisan session:table
+php artisan queue:failed-table
+php artisan queue:table
+php artisan queue:batches-table
+php artisan cache:table
+php artisan migrate
