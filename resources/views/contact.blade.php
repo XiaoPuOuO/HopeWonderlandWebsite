@@ -2,6 +2,10 @@
 
 @section('description', '聯繫 HopeWonderland Studio，我們提供專業的技術諮詢服務，為您的專案提供最佳解決方案。')
 
+@section('head')
+    @vite(['resources/css/contact-form.css', 'resources/js/contact-page.js'])
+@endsection
+
 @section('content')
 <!-- Hero Section -->
 <section class="page-hero">
@@ -121,13 +125,9 @@
                         <label for="service" class="form-label">服務類型 *</label>
                         <select id="service" name="service" class="form-control" required>
                             <option value="">請選擇服務類型</option>
-                            <option value="game-development">遊戲開發</option>
-                            <option value="saas-development">SaaS 平台開發</option>
-                            <option value="web-development">網站開發</option>
-                            <option value="mobile-development">行動應用開發</option>
-                            <option value="outsourcing">代工服務</option>
-                            <option value="consulting">技術諮詢</option>
-                            <option value="other">其他</option>
+                            @foreach($serviceOptions as $value => $label)
+                                <option value="{{ $value }}">{{ $label }}</option>
+                            @endforeach
                         </select>
                     </div>
                     
@@ -135,12 +135,9 @@
                         <label for="budget" class="form-label">預算範圍</label>
                         <select id="budget" name="budget" class="form-control">
                             <option value="">請選擇預算範圍</option>
-                            <option value="under-50k">50萬以下</option>
-                            <option value="50k-100k">50-100萬</option>
-                            <option value="100k-200k">100-200萬</option>
-                            <option value="200k-500k">200-500萬</option>
-                            <option value="over-500k">500萬以上</option>
-                            <option value="discuss">面議</option>
+                            @foreach($budgetOptions as $value => $label)
+                                <option value="{{ $value }}">{{ $label }}</option>
+                            @endforeach
                         </select>
                     </div>
                     
@@ -173,6 +170,11 @@
                         <i class="fas fa-paper-plane"></i>發送訊息
                     </button>
                 </form>
+                
+                <!-- 訊息提示區域 -->
+                <div id="message-alert" class="alert" style="display: none; margin-top: 20px;">
+                    <span id="message-text"></span>
+                </div>
             </div>
         </div>
     </div>
@@ -258,8 +260,8 @@
                 </div>
                 <div class="faq-card-body">
                     <p class="faq-card-answer">
-                        我們使用多種現代技術，包括 React、Vue.js、Laravel、Node.js、
-                        Unity 3D、Python、Docker 等。技術選型會根據專案需求來決定。
+                        我們使用多種現代技術，包括 React、Spring Boot、Laravel、Node.js、
+                        Unity 3D、Python 等。技術選型會根據專案需求來決定。
                     </p>
                 </div>
             </div>
@@ -302,4 +304,5 @@
         </div>
     </div>
 </section>
+
 @endsection

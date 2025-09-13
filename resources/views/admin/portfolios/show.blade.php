@@ -199,7 +199,7 @@
         <a href="{{ route('admin.portfolios.edit', $portfolio) }}" class="btn btn-primary btn-large">
             <i class="fas fa-edit"></i>編輯作品集
         </a>
-        <button class="btn btn-danger btn-large" onclick="deletePortfolio({{ $portfolio->id }}, '{{ $portfolio->title }}')">
+        <button class="btn btn-danger btn-large" onclick="deletePortfolio({{ $portfolio->id }}, {{ json_encode($portfolio->title) }})">
             <i class="fas fa-trash"></i>刪除作品集
         </button>
     </div>
@@ -221,7 +221,7 @@ function deletePortfolio(id, title) {
         type: 'confirm',
         onConfirm: function() {
             const form = document.getElementById('delete-form');
-            form.action = `/admin/portfolios/${id}`;
+            form.action = '/admin/portfolios/' + id;
             form.submit();
         }
     });

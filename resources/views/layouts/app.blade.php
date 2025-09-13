@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'HopeWonderland Studio')</title>
+    <title>@yield('title', '《HopeWonderland Studio》')</title>
     <meta name="description" content="@yield('description', 'HopeWonderland Studio - 創意設計工作室')">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/icon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/icon.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +26,7 @@
     <!-- Vite CSS -->
     @vite(['resources/css/app.css'])
     
+    @yield('head')
     @stack('styles')
 </head>
 <body class="bg-secondary">
@@ -112,7 +122,7 @@
                             <a href="#" class="social-link">
                                 <i class="fab fa-facebook"></i>
                             </a>
-                            <a href="#" class="social-link">ㄇ
+                            <a href="#" class="social-link">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="#" class="social-link">
@@ -129,7 +139,7 @@
         </div>
     </footer>
 
-    <!-- Vite JS -->
+    <!-- Vite JS - 確保主題切換功能總是載入 -->
     @vite(['resources/js/app.js', 'resources/js/global.js'])
     
     @stack('scripts')

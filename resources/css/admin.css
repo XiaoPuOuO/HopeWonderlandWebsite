@@ -97,6 +97,19 @@
     text-align: center;
 }
 
+.sidebar-nav .nav-link .nav-badge {
+    background-color: #dc3545;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.75rem;
+    margin-left: auto;
+    min-width: 1.25rem;
+    text-align: center;
+    line-height: 1;
+}
+
 /* 主題切換按鈕特殊樣式 */
 .sidebar-nav .theme-toggle {
     margin-top: 1rem;

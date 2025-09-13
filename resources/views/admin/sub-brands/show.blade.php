@@ -156,7 +156,7 @@
                 <div class="btn-group" style="justify-content: flex-end;">
                     <button type="button" 
                             class="btn btn-danger"
-                            onclick="confirmDeleteSubBrand({{ $subBrand->id }}, '{{ $subBrand->name }}')">
+                            onclick="confirmDeleteSubBrand({{ $subBrand->id }}, {{ json_encode($subBrand->name) }})">
                         <i class="fas fa-trash"></i>刪除
                     </button>
                     <a href="{{ route('admin.sub-brands.edit', $subBrand) }}" class="btn btn-primary">
@@ -179,7 +179,7 @@ function confirmDeleteSubBrand(id, name) {
             // 創建隱藏的表單來提交刪除請求
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = `/admin/sub-brands/${id}`;
+            form.action = '/admin/sub-brands/' + id;
             
             const csrfToken = document.createElement('input');
             csrfToken.type = 'hidden';

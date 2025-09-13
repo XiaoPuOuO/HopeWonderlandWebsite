@@ -1,0 +1,21 @@
+{
+    "name": "HopeWonderland Studio",
+    "short_name": "HopeWonderland",
+    "description": "HopeWonderland Studio - 創意設計工作室",
+    "icons": [
+        {
+            "src": "/images/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#667eea",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "/"
+}

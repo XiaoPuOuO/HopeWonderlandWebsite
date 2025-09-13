@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactMessageController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubBrandController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\TeamMemberController;
+use App\Http\Controllers\Admin\ContactMessageController as AdminContactMessageController;
+use App\Http\Controllers\Admin\ContactOptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,9 +56,13 @@ Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio'
 
 // 聯絡我們
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact.store');
 
 // 管理後台路由
 Route::prefix('admin')->name('admin.')->group(function () {
+    // 儀表板
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    
     // 子品牌管理
     Route::resource('sub-brands', SubBrandController::class);
     Route::post('sub-brands/upload-logo', [SubBrandController::class, 'uploadLogo'])->name('sub-brands.upload-logo');
@@ -73,4 +81,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('team-members/upload-avatar', [TeamMemberController::class, 'uploadAvatar'])->name('team-members.upload-avatar');
     Route::delete('team-members/{teamMember}/avatar', [TeamMemberController::class, 'deleteAvatar'])->name('team-members.delete-avatar');
     Route::patch('team-members/{teamMember}/toggle-status', [TeamMemberController::class, 'toggleStatus'])->name('team-members.toggle-status');
+    
+    // 聯絡訊息管理
+    Route::resource('contact-messages', AdminContactMessageController::class);
+    Route::patch('contact-messages/{contactMessage}/mark-read', [AdminContactMessageController::class, 'markAsRead'])->name('contact-messages.mark-read');
+    Route::patch('contact-messages/{contactMessage}/mark-unread', [AdminContactMessageController::class, 'markAsUnread'])->name('contact-messages.mark-unread');
+    Route::post('contact-messages/bulk-action', [AdminContactMessageController::class, 'bulkAction'])->name('contact-messages.bulk-action');
+    Route::get('contact-messages-stats', [AdminContactMessageController::class, 'getStats'])->name('contact-messages.stats');
+    
+    // 聯絡選項管理
+    Route::resource('contact-options', ContactOptionController::class);
+    Route::patch('contact-options/{contactOption}/toggle-status', [ContactOptionController::class, 'toggleStatus'])->name('contact-options.toggle-status');
+    Route::post('contact-options/bulk-action', [ContactOptionController::class, 'bulkAction'])->name('contact-options.bulk-action');
 });

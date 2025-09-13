@@ -213,24 +213,4 @@
         </div>
     </div>
 </section>
-
-<!-- CTA Section -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2 class="cta-title">準備開始您的專案了嗎？</h2>
-            <p class="cta-description">
-                聯繫我們，讓我們為您打造下一個成功的數位解決方案
-            </p>
-            <div class="cta-actions">
-                <a href="#contact" class="btn btn-primary btn-large">
-                    <i class="fas fa-envelope"></i>聯繫我們
-                </a>
-                <a href="{{ route('portfolio') }}" class="btn btn-secondary btn-large">
-                    <i class="fas fa-eye"></i>查看作品
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
 @endsection

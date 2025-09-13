@@ -242,11 +242,10 @@ function addSkillTag(value) {
     const tagContainer = document.getElementById('skill-tags');
     const tag = document.createElement('span');
     tag.className = 'tag-item';
-    tag.innerHTML = `
-        ${value}
-        <input type="hidden" name="skills[]" value="${value}">
-        <button type="button" class="tag-remove" onclick="removeTag(this)">×</button>
-    `;
+    tag.innerHTML = 
+        value +
+        '<input type="hidden" name="skills[]" value="' + value + '">' +
+        '<button type="button" class="tag-remove" onclick="removeTag(this)">×</button>';
     tagContainer.appendChild(tag);
 }
 

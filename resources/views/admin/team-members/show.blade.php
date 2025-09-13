@@ -199,7 +199,7 @@
         <a href="{{ route('admin.team-members.edit', $teamMember) }}" class="btn btn-primary btn-large">
             <i class="fas fa-edit"></i>編輯成員
         </a>
-        <button class="btn btn-danger btn-large" onclick="deleteTeamMember({{ $teamMember->id }}, '{{ $teamMember->name }}')">
+        <button class="btn btn-danger btn-large" onclick="deleteTeamMember({{ $teamMember->id }}, {{ json_encode($teamMember->name) }})">
             <i class="fas fa-trash"></i>刪除成員
         </button>
     </div>
@@ -221,7 +221,7 @@ function deleteTeamMember(id, name) {
         type: 'confirm',
         onConfirm: function() {
             const form = document.getElementById('delete-form');
-            form.action = `/admin/team-members/${id}`;
+            form.action = '/admin/team-members/' + id;
             form.submit();
         }
     });

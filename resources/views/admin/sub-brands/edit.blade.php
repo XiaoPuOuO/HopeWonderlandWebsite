@@ -392,17 +392,16 @@ function addTag() {
     const container = document.getElementById('tags-container');
     const newTag = document.createElement('div');
     newTag.className = 'btn-group';
-    newTag.innerHTML = `
-        <input type="text" 
-               name="tags[]" 
-               placeholder="輸入標籤"
-               class="form-control">
-        <button type="button" 
-                onclick="removeTag(this)" 
-                class="btn btn-danger">
-            <i class="fas fa-trash"></i>
-        </button>
-    `;
+    newTag.innerHTML = 
+        '<input type="text" ' +
+        '       name="tags[]" ' +
+        '       placeholder="輸入標籤"' +
+        '       class="form-control">' +
+        '<button type="button" ' +
+        '        onclick="removeTag(this)" ' +
+        '        class="btn btn-danger">' +
+        '    <i class="fas fa-trash"></i>' +
+        '</button>';
     container.appendChild(newTag);
 }
 

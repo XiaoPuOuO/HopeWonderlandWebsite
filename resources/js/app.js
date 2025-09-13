@@ -463,14 +463,16 @@ function initThemeToggle() {
     
     // 桌面版主題切換
     if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
+        themeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
             toggleTheme();
         });
     }
     
     // 手機版主題切換
     if (mobileThemeToggle) {
-        mobileThemeToggle.addEventListener('click', function() {
+        mobileThemeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
             toggleTheme();
             // 關閉手機選單
             const mobileMenu = document.getElementById('mobile-menu');
@@ -482,7 +484,8 @@ function initThemeToggle() {
     
     // 管理後台主題切換
     if (adminThemeToggle) {
-        adminThemeToggle.addEventListener('click', function() {
+        adminThemeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
             toggleTheme();
         });
     }
@@ -490,35 +493,42 @@ function initThemeToggle() {
 
 // 切換主題
 function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-    
-    // 顯示切換通知
-    if (window.showNotification) {
-        window.showNotification(
-            `已切換到${newTheme === 'dark' ? '暗色' : '亮色'}模式`,
-            'success'
-        );
+    try {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+        
+        // 顯示切換通知
+        if (typeof window.showNotification === 'function') {
+            window.showNotification(
+                `已切換到${newTheme === 'dark' ? '暗色' : '亮色'}模式`,
+                'success'
+            );
+        }
+    } catch (error) {
+        console.error('主題切換失敗:', error);
+        if (typeof window.showNotification === 'function') {
+            window.showNotification('主題切換失敗', 'error');
+        }
     }
 }
 
 // 更新主題圖標
 function updateThemeIcon(theme) {
-    const desktopIcon = document.querySelector('#theme-toggle i');
-    const mobileIcon = document.querySelector('#mobile-theme-toggle i');
-    const adminIcon = document.querySelector('#admin-theme-toggle i');
-    
-    if (theme === 'dark') {
-        if (desktopIcon) desktopIcon.className = 'fas fa-sun';
-        if (mobileIcon) mobileIcon.className = 'fas fa-sun';
-        if (adminIcon) adminIcon.className = 'fas fa-sun';
-    } else {
-        if (desktopIcon) desktopIcon.className = 'fas fa-moon';
-        if (mobileIcon) mobileIcon.className = 'fas fa-moon';
-        if (adminIcon) adminIcon.className = 'fas fa-moon';
+    try {
+        const desktopIcon = document.querySelector('#theme-toggle i');
+        const mobileIcon = document.querySelector('#mobile-theme-toggle i');
+        const adminIcon = document.querySelector('#admin-theme-toggle i');
+        
+        const iconClass = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        
+        if (desktopIcon) desktopIcon.className = iconClass;
+        if (mobileIcon) mobileIcon.className = iconClass;
+        if (adminIcon) adminIcon.className = iconClass;
+    } catch (error) {
+        console.error('更新主題圖標失敗:', error);
     }
 }

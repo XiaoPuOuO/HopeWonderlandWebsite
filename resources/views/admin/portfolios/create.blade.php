@@ -281,11 +281,10 @@ function addTechTag(value) {
     const tagContainer = document.getElementById('tech-tags');
     const tag = document.createElement('span');
     tag.className = 'tag-item';
-    tag.innerHTML = `
-        ${value}
-        <input type="hidden" name="technologies[]" value="${value}">
-        <button type="button" class="tag-remove" onclick="removeTag(this)">×</button>
-    `;
+    tag.innerHTML = 
+        value +
+        '<input type="hidden" name="technologies[]" value="' + value + '">' +
+        '<button type="button" class="tag-remove" onclick="removeTag(this)">×</button>';
     tagContainer.appendChild(tag);
 }
 

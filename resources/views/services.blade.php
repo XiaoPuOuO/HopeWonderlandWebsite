@@ -58,7 +58,6 @@
                         <h4 class="tech-title">技術棧</h4>
                         <div class="tech-tags">
                             <span class="tech-tag">Unity 3D</span>
-                            <span class="tech-tag">Unreal Engine</span>
                             <span class="tech-tag">C#</span>
                             <span class="tech-tag">C++</span>
                             <span class="tech-tag">Node.js</span>
@@ -105,7 +104,6 @@
                         <h4 class="tech-title">技術棧</h4>
                         <div class="tech-tags">
                             <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Kubernetes</span>
                             <span class="tech-tag">AWS</span>
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Node.js</span>
@@ -152,7 +150,6 @@
                         <h4 class="tech-title">技術棧</h4>
                         <div class="tech-tags">
                             <span class="tech-tag">Laravel</span>
-                            <span class="tech-tag">Vue.js</span>
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">MySQL</span>
@@ -295,28 +292,8 @@
         </div>
     </div>
 </section>
-
-<!-- CTA Section -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2 class="cta-title">準備開始您的專案了嗎？</h2>
-            <p class="cta-description">
-                聯繫我們，讓我們為您提供最適合的技術解決方案
-            </p>
-            <div class="cta-actions">
-                <a href="#contact" class="btn btn-primary btn-large">
-                    <i class="fas fa-envelope"></i>立即諮詢
-                </a>
-                <a href="{{ route('about') }}" class="btn btn-secondary btn-large">
-                    <i class="fas fa-info-circle"></i>了解更多
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
 @endsection
 
 @push('scripts')
-<script src="{{ asset('js/process.js') }}"></script>
+@vite(['resources/js/process.js'])
 @endpush

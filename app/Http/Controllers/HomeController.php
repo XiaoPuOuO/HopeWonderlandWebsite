@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SubBrand;
 use App\Models\TeamMember;
 use App\Models\Portfolio;
+use App\Models\ContactOption;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,8 +16,10 @@ class HomeController extends Controller
     public function index()
     {
         $subBrands = SubBrand::active()->ordered()->get();
+        $serviceOptions = ContactOption::getServiceOptions();
+        $budgetOptions = ContactOption::getBudgetOptions();
         
-        return view('home', compact('subBrands'));
+        return view('home', compact('subBrands', 'serviceOptions', 'budgetOptions'));
     }
 
     public function about()
@@ -49,6 +52,9 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $serviceOptions = ContactOption::getServiceOptions();
+        $budgetOptions = ContactOption::getBudgetOptions();
+        
+        return view('contact', compact('serviceOptions', 'budgetOptions'));
     }
 }

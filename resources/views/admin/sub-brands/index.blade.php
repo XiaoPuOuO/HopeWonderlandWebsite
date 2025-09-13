@@ -62,7 +62,7 @@
                                     </a>
                                     <button type="button" 
                                             class="btn btn-sm btn-danger"
-                                            onclick="confirmDeleteSubBrand({{ $subBrand->id }}, '{{ $subBrand->name }}')">
+                                            onclick="confirmDeleteSubBrand({{ $subBrand->id }}, {{ json_encode($subBrand->name) }})">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
@@ -105,10 +105,10 @@ function confirmDeleteSubBrand(id, name) {
 
 function deleteSubBrand(id, name) {
     // 找到對應的卡片元素
-    const cardElement = document.querySelector(`[data-sub-brand-id="${id}"]`);
+    const cardElement = document.querySelector('[data-sub-brand-id="' + id + '"]');
     
     // 發送 AJAX 刪除請求
-    fetch(`/admin/sub-brands/${id}`, {
+    fetch('/admin/sub-brands/' + id, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
