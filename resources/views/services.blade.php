@@ -276,7 +276,7 @@
                 </div>
                 <div class="summary-content">
                     <h4 class="summary-title">專案團隊</h4>
-                    <p class="summary-value">2-5 人</p>
+                    <p class="summary-value">專業團隊</p>
                 </div>
             </div>
             
