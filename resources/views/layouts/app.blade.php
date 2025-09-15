@@ -163,7 +163,7 @@
                     <h3 class="footer-title">聯絡資訊</h3>
                     <div class="footer-contact">
                         <p><i class="fas fa-envelope"></i>hopewonderlandteam@gmail.com</p>
-                        <p><i class="fas fa-phone"></i>+886 02 8982 5981</p>
+                        <p><i class="fas fa-phone"></i>+886 0979 511 816</p>
                         <div class="social-links">
                             <a href="#" class="social-link">
                                 <i class="fab fa-facebook"></i>

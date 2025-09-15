@@ -38,8 +38,8 @@
                         <div class="method-content">
                             <h3 class="method-title">電子郵件</h3>
                             <p class="method-description">最適合詳細的專案討論</p>
-                            <a href="mailto:contact@hopewonderland.com" class="method-link">
-                                contact@hopewonderland.com
+                            <a href="mailto:hopewonderlandteam@gmail.com" class="method-link">
+                                hopewonderlandteam@gmail.com
                             </a>
                         </div>
                     </div>
@@ -50,9 +50,9 @@
                         </div>
                         <div class="method-content">
                             <h3 class="method-title">電話</h3>
-                            <p class="method-description">週一至週五 9:00-18:00</p>
-                            <a href="tel:+886212345678" class="method-link">
-                                +886 2 1234 5678
+                            <p class="method-description">週一至週五 12:00-22:00</p>
+                            <a href="tel:+886979511816" class="method-link">
+                                +886 0979 511 816
                             </a>
                         </div>
                     </div>
@@ -62,10 +62,10 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="method-content">
-                            <h3 class="method-title">地址</h3>
-                            <p class="method-description">歡迎預約參觀我們的辦公室</p>
+                            <h3 class="method-title">服務區域</h3>
+                            <p class="method-description">主要服務台北地區，其他地區可透過線上會議討論</p>
                             <span class="method-link">
-                                台北市信義區信義路五段7號
+                                台北市信義區
                             </span>
                         </div>
                     </div>
@@ -288,14 +288,14 @@
 <section class="map-section">
     <div class="container">
         <div class="map-content">
-            <h2 class="map-title">我們的辦公室</h2>
+            <h2 class="map-title">服務範圍</h2>
             <p class="map-description">
-                歡迎預約參觀我們的辦公室，我們很樂意為您介紹我們的工作環境和團隊
+                我們主要服務台北地區，其他地區的客戶可透過線上會議進行專案討論和溝通
             </p>
             <div class="map-container">
                 <div class="map-placeholder">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>台北市信義區信義路五段7號</p>
+                    <p>台北市信義區</p>
                     <a href="#" class="btn btn-secondary">
                         <i class="fas fa-directions"></i>查看地圖
                     </a>
