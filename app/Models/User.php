@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'admin',
     ];
 
     /**
@@ -40,5 +41,14 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'admin' => 'boolean',
     ];
+
+    /**
+     * 檢查用戶是否為管理員
+     */
+    public function isAdmin(): bool
+    {
+        return $this->admin === true;
+    }
 }

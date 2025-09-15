@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactMessageController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubBrandController;
 use App\Http\Controllers\Admin\PortfolioController;
@@ -58,8 +61,26 @@ Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio'
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact.store');
 
-// 管理後台路由
-Route::prefix('admin')->name('admin.')->group(function () {
+// 認證路由
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// 註冊路由
+Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
+
+// 用戶Dashboard路由
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('/user/edit', [UserDashboardController::class, 'edit'])->name('user.edit');
+    Route::put('/user/update', [UserDashboardController::class, 'update'])->name('user.update');
+    Route::get('/user/edit-password', [UserDashboardController::class, 'editPassword'])->name('user.edit-password');
+    Route::put('/user/update-password', [UserDashboardController::class, 'updatePassword'])->name('user.update-password');
+});
+
+// 管理後台路由 - 需要認證和管理員權限
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     // 儀表板
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     

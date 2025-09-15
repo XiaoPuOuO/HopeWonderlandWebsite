@@ -43,17 +43,46 @@
                 
                 <div class="navbar-nav desktop-nav">
                     <a href="{{ route('home') }}" class="nav-link">首頁</a>
-                    <a href="{{ route('about') }}" class="nav-link">關於我們</a>
-                    <a href="{{ route('team') }}" class="nav-link">核心團隊</a>
-                    <a href="{{ route('services') }}" class="nav-link">服務項目</a>
-                    <a href="{{ route('portfolio') }}" class="nav-link">作品集</a>
-                    <a href="{{ route('contact') }}" class="nav-link">聯絡我們</a>
+                    <a href="{{ route('about') }}" class="nav-link">關於</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link nav-dropdown-toggle">
+                            更多 <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <a href="{{ route('team') }}" class="nav-dropdown-link">團隊</a>
+                            <a href="{{ route('services') }}" class="nav-dropdown-link">服務</a>
+                            <a href="{{ route('portfolio') }}" class="nav-dropdown-link">作品</a>
+                            <a href="{{ route('contact') }}" class="nav-dropdown-link">聯絡</a>
+                        </div>
+                    </div>
                     <button class="theme-toggle" id="theme-toggle" title="切換主題">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <a href="{{ route('admin.sub-brands.index') }}" class="btn btn-primary">
-                        <i class="fas fa-cog"></i>管理後台
-                    </a>
+                    @auth
+                        @if(auth()->user()->isAdmin())
+                            <a href="{{ route('admin.dashboard') }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-cog"></i>管理
+                            </a>
+                        @endif
+                        <a href="{{ route('user.dashboard') }}" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-user"></i>帳號
+                        </a>
+                        <form method="POST" action="{{ route('logout') }}" class="logout-form">
+                            @csrf
+                            <button type="submit" class="btn btn-secondary btn-sm">
+                                <i class="fas fa-sign-out-alt"></i>登出
+                            </button>
+                        </form>
+                    @else
+                        <div class="auth-buttons">
+                            <a href="{{ route('login') }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-sign-in-alt"></i>登入
+                            </a>
+                            <a href="{{ route('register') }}" class="btn btn-secondary btn-sm">
+                                <i class="fas fa-user-plus"></i>註冊
+                            </a>
+                        </div>
+                    @endauth
                 </div>
                 
                 <!-- Mobile menu button -->
@@ -77,9 +106,26 @@
                 <button class="mobile-nav-link theme-toggle" id="mobile-theme-toggle">
                     <i class="fas fa-moon"></i>切換主題
                 </button>
-                <a href="{{ route('admin.sub-brands.index') }}" class="mobile-nav-link admin-link">
-                    <i class="fas fa-cog"></i>管理後台
-                </a>
+                @auth
+                    @if(auth()->user()->isAdmin())
+                        <a href="{{ route('admin.dashboard') }}" class="mobile-nav-link admin-link">
+                            <i class="fas fa-cog"></i>管理後台
+                        </a>
+                    @endif
+                    <form method="POST" action="{{ route('logout') }}" class="logout-form">
+                        @csrf
+                        <button type="submit" class="mobile-nav-link">
+                            <i class="fas fa-sign-out-alt"></i>登出
+                        </button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="mobile-nav-link">
+                        <i class="fas fa-sign-in-alt"></i>會員登入
+                    </a>
+                    <a href="{{ route('register') }}" class="mobile-nav-link">
+                        <i class="fas fa-user-plus"></i>註冊
+                    </a>
+                @endauth
             </div>
         </div>
     </nav>
