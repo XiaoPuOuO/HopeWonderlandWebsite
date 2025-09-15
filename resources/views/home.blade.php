@@ -209,7 +209,7 @@
                             <h3 class="method-title">服務區域</h3>
                             <p class="method-description">主要服務台北地區，其他地區可透過線上會議討論</p>
                             <span class="method-link">
-                                台北市信義區
+                                台北市中山區
                             </span>
                         </div>
                     </div>
