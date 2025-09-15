@@ -154,14 +154,10 @@
         @else
             <div class="empty-state">
                 <div class="empty-icon">
-                    <i class="fas fa-plus"></i>
+                    <i class="fas fa-rocket"></i>
                 </div>
                 <h3 class="empty-title">暫無子品牌網站</h3>
                 <p class="empty-description">我們正在準備更多精彩的子品牌網站，敬請期待！</p>
-                <a href="{{ route('admin.sub-brands.create') }}" 
-                   class="btn btn-primary">
-                    <i class="fas fa-plus"></i>添加子品牌網站
-                </a>
             </div>
         @endif
     </div>

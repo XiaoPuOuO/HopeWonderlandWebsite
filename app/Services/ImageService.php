@@ -23,7 +23,16 @@ class ImageService
 
     public function __construct()
     {
-        $this->manager = new ImageManager(new Driver());
+        try {
+            $this->manager = new ImageManager(new Driver());
+        } catch (\Exception $e) {
+            // 如果 GD 驅動不可用，嘗試使用 Imagick
+            try {
+                $this->manager = new ImageManager(new \Intervention\Image\Drivers\Imagick\Driver());
+            } catch (\Exception $e2) {
+                throw new \RuntimeException('無法初始化圖片處理器。請確保已安裝 GD 或 Imagick 擴展。');
+            }
+        }
     }
 
     /**
