@@ -457,7 +457,7 @@ function initThemeToggle() {
     const adminThemeToggle = document.getElementById('admin-theme-toggle');
     
     // 從 localStorage 讀取主題設定
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
     
@@ -494,7 +494,7 @@ function initThemeToggle() {
 // 切換主題
 function toggleTheme() {
     try {
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
         document.documentElement.setAttribute('data-theme', newTheme);
