@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', '管理後台') - HopeWonderland Studio</title>
+    <title>《HopeWonderland Studio》</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Favicon -->
