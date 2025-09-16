@@ -715,7 +715,7 @@ body {
 /* 頁腳 */
 .footer {
     background: var(--bg-gradient);
-    color: var(--text-white);
+    color: var(--text-primary);
     padding: 3rem 0 1rem;
     margin-top: 4rem;
     position: relative;
@@ -753,10 +753,11 @@ body {
 .footer-brand-name {
     font-size: 1.25rem;
     font-weight: 700;
+    color: var(--text-primary);
 }
 
 .footer-description {
-    color: var(--text-light);
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -764,7 +765,7 @@ body {
     font-size: 1.125rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: var(--text-white);
+    color: var(--text-primary);
 }
 
 .footer-links {
@@ -775,7 +776,7 @@ body {
 }
 
 .footer-link {
-    color: var(--text-light);
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color var(--transition-normal);
 }
@@ -785,7 +786,7 @@ body {
 }
 
 .footer-contact p {
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
@@ -796,46 +797,12 @@ body {
     color: var(--primary-color);
 }
 
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-/* Footer social links */
-.footer .social-link {
-    display: block;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: var(--text-light);
-    text-decoration: none;
-    transition: all var(--transition-normal);
-    position: relative;
-    text-align: center;
-}
-
-.footer .social-link i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2rem;
-    line-height: 1;
-}
-
-.footer .social-link:hover {
-    background-color: var(--primary-color);
-    color: var(--text-white);
-    transform: translateY(-2px);
-}
 
 .footer-bottom {
     border-top: 1px solid var(--border-dark);
     padding-top: 1rem;
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 /* 特殊效果 */
@@ -942,7 +909,7 @@ body {
 .hero-title {
     font-size: 4rem;
     font-weight: 700;
-    color: var(--text-white);
+    color: var(--text-primary);
     margin-bottom: 1rem;
     line-height: 1.1;
 }
@@ -956,7 +923,7 @@ body {
 
 .hero-description {
     font-size: 1.25rem;
-    color: var(--text-white);
+    color: var(--text-primary);
     opacity: 0.9;
     max-width: 48rem;
     margin: 0 auto 2rem;
@@ -1438,9 +1405,6 @@ body {
         text-align: center;
     }
     
-    .social-links {
-        justify-content: center;
-    }
     
     /* 首頁響應式 */
     .hero-title {
@@ -2003,24 +1967,6 @@ body {
     justify-content: center;
 }
 
-.social-link {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--bg-primary);
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-normal);
-    border: 1px solid var(--border-color);
-}
-
-.social-link:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-2px);
-}
 
 /* Empty State */
 .empty-state {
@@ -2779,42 +2725,6 @@ body {
     color: var(--primary-hover);
 }
 
-.social-section {
-    margin-top: 2rem;
-}
-
-.social-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-link {
-    width: 2.5rem;
-    height: 2.5rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: all var(--transition-normal);
-}
-
-.social-link:hover {
-    background: var(--primary-color);
-    color: var(--text-white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
 
 .contact-form {
     background: var(--bg-secondary);

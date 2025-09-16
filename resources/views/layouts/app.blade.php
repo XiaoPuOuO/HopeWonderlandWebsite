@@ -164,17 +164,6 @@
                     <div class="footer-contact">
                         <p><i class="fas fa-envelope"></i>hopewonderlandteam@gmail.com</p>
                         <p><i class="fas fa-phone"></i>+886 0979 511 816</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
